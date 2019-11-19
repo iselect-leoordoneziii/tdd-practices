@@ -8,7 +8,7 @@ class StringCalculator {
         this._invocations += 1;
     }
 
-    public add(input: string, _: void = this._onInvoked()) {
+    public add(input: string, _: void = this._onInvoked()): number {
         if(input === '') return 0;
 
         const numbers: number[] = this.parser.parse(input).filter(d => d <= 1000);

@@ -2,8 +2,8 @@ class NumberSetParser implements Parser<number[]> {
     private _defaultDelimiter = ',';
     private _delimiters: string[] = ['\n', ','];
     private _patterns: IPatternMap<RegExp> = {
-        'capture-delimiters': /(?<=\[).+?(?=\])/g,
-        'capture-substitute': /^\/\/(.+)\n([\s\S.]+)/
+        'capture-delimiters': new RegExp('(?<=\\[).+?(?=\\])', 'g'),
+        'capture-substitute': new RegExp('^\\/\\/(.+)\\n([\\s\\S.]+)')
     }
 
     public constructor() {}
@@ -17,9 +17,8 @@ class NumberSetParser implements Parser<number[]> {
         let chunks = input.match(this._patterns['capture-substitute']);
 
         if(chunks !== null) {
+            this._delimiters = chunks[1].match(this._patterns['capture-delimiters']) || [chunks[1]];
             input = chunks[2];
-            let _dels: any = chunks[1].match(this._patterns['capture-delimiters']);
-            this._delimiters = _dels || [chunks[1]];
         }
 
         return input;
