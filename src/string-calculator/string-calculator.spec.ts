@@ -57,10 +57,6 @@ describe('StringCalculator module', () => {
         expect(stringCalculator.add('//[***]\n1***2***3')).toBe(6);
     });
 
-    it('must accept bracketed delimiter as substitute', () => {
-        expect(stringCalculator.add('//[***]\n1***2***3')).toBe(6);
-    });
-
     it('must accept multiple bracketed delimiters as substitute', () => {
         expect(stringCalculator.add('//[*][%]\n1*2%3')).toBe(6);
     });
