@@ -1,0 +1,20 @@
+{
+  "name": "string-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tsconfig.js",
+  "scripts": {
+    "start": "ts-node src/string-calculator.module.ts",
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.5.0",
+    "typescript": "^3.7.2"
+  }
+}
