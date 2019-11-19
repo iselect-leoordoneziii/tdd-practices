@@ -1,3 +1,6 @@
+KATA Greeter 
+-https://github.com/wix/tdd-katas
+
 KATA Case study references:
 
 1. String Calulator KATA
