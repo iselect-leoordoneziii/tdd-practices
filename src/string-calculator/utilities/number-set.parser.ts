@@ -8,7 +8,7 @@ class NumberSetParser implements Parser<number[]> {
 
     public constructor() {}
 
-    private get pattern(): RegExp {
+    private get _replacer(): RegExp {
         let _regex = [...this._delimiters.join('|')].map(s => !s.match(/[a-zA-Z0-9|]/) ? ("\\" + s) : s);
         return new RegExp(`(${_regex.join('')})`, 'g');
     }
@@ -26,7 +26,7 @@ class NumberSetParser implements Parser<number[]> {
 
     public parse(input: string): number[] {
         let _input = this._chunk(input);
-        let parsed = _input.replace(this.pattern, this._defaultDelimiter).split(this._defaultDelimiter);
+        let parsed = _input.replace(this._replacer, this._defaultDelimiter).split(this._defaultDelimiter);
 
         if(parsed.includes('')) {
             throw new Error('INVALID input');
